@@ -3,7 +3,7 @@
 - [x] + 버튼을 클릭 시 count가 1증가한다.
 - [x] - 버튼을 클릭 시 count가 1감소한다.
 - [x] + 버튼을 눌렀을 때 count가 12가 넘는 경우 더이상 증가하지 못한다. (Max 값이 12)
-- [ ] - 버튼을 눌렀을 때 count는 8보다 작아지는 경우 감소하지 못한다. (Min 값이 8)
+- [x] - 버튼을 눌렀을 때 count는 8보다 작아지는 경우 감소하지 못한다. (Min 값이 8)
 
  */
 describe("container",()=>{
@@ -48,6 +48,18 @@ describe("container",()=>{
 
            cy.get(".count-display").should("have.value",12);
 
+       });
+    });
+
+    it("- min값 8",()=>{
+       cy.get(".count-display").then(input=>{
+
+           const inputValue = Number(input.val());
+           cy.get(".minus-button").click();
+           cy.get(".minus-button").click();
+           cy.get(".minus-button").click();
+
+           cy.get(".count-display").should("have.value",8);
        });
     });
 });
