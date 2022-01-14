@@ -13,7 +13,7 @@ const $=(s)=>document.querySelector(s);
 let countValue = $(".count-display");
 
 
-$(".plus-button").addEventListener("click",(e)=>{
+$(".plus-button").addEventListener("click",()=>{
   if(countValue.value >=12){
 
     return;
@@ -23,6 +23,16 @@ $(".plus-button").addEventListener("click",(e)=>{
     countValue.value = String(Number(countValue.value)+1);
   }
 });
+
+$(".minus-button").addEventListener("click",()=>{
+    if(countValue.value <= 8){
+      return;
+    }
+    else{
+      countValue.value = String(Number(countValue.value))-1;
+    }
+});
+
 
 
 
