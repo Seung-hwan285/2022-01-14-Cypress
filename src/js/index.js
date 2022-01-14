@@ -8,3 +8,21 @@ App();
 
 
 
+const $=(s)=>document.querySelector(s);
+
+let countValue = $(".count-display");
+
+
+$(".plus-button").addEventListener("click",(e)=>{
+  if(countValue.value >=12){
+
+    return;
+  }
+  else{
+
+    countValue.value = String(Number(countValue.value)+1);
+  }
+});
+
+
+
